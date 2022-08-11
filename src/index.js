@@ -9,15 +9,6 @@ const countryList = document.querySelector('ul.country-list');
 const countryInfo = document.querySelector('div.country-info');
 const body = document.querySelector('body');
 
-body.style.padding = '15px';
-body.style.backgroundColor = '#CDD8D4';
-
-input.style.width = '30vw';
-input.style.fontWeight = '600';
-
-countryList.style.listStyle = 'none';
-countryList.style.margin = '0';
-countryList.style.padding = '0';
 
 const renderInfo = countries => {
   let markupInfo = countries
@@ -90,3 +81,17 @@ input.addEventListener(
       });
   }, DEBOUNCE_DELAY)
 );
+
+/--styles--/
+body.style.padding = '20px';
+body.style.backgroundColor = '#808080';
+
+
+input.style.fontSize = '50px';
+input.style.backgroundColor='#000';
+input.style.color='#fff';
+
+
+countryList.style.listStyle = 'none';
+countryList.style.margin = '0';
+countryList.style.padding = '0';
