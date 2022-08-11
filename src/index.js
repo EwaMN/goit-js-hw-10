@@ -10,7 +10,7 @@ const countryInfo = document.querySelector('div.country-info');
 const body = document.querySelector('body');
 
 
-const renderInfo = countries => {
+const restInfo = countries => {
   let markupInfo = countries
     .map(country => {
       return `<p class="info-header" style="display: flex; align-items: center; font-size: 40px; font-weight: 700; margin: 0; margin-bottom: 30px;" ><img src="${
@@ -34,7 +34,7 @@ const renderInfo = countries => {
   countryInfo.innerHTML = markupInfo;
 };
 
-const renderList = countries => {
+const restList = countries => {
   let markupList = countries
     .map(country => {
       return `<li class="country-element" style="display: flex; align-items: center; padding-bottom: 8px"><img src="${country.flags.svg}" width="30" style="display: inline-block" /><span class="country-span" style="padding-left: 5px; font-weight: 600; font-size: 18px">${country.name.official}</span></li>`;
@@ -64,11 +64,11 @@ input.addEventListener(
         }
         if (countries.length <= 10 && countries.length >= 2) {
           countryInfo.innerHTML = '';
-          renderList(countries);
+          restList(countries);
         }
         if (countries.length === 1) {
           countryList.innerHTML = '';
-          renderInfo(countries);
+          restInfo(countries);
         }
       })
       .catch(error => {
@@ -82,7 +82,7 @@ input.addEventListener(
   }, DEBOUNCE_DELAY)
 );
 
-/--styles--/
+/*--styles--*/
 body.style.padding = '20px';
 body.style.backgroundColor = '#808080';
 
