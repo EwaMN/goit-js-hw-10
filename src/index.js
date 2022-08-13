@@ -7,7 +7,7 @@ const DEBOUNCE_DELAY = 300;
 const input = document.querySelector('input#search-box');
 const countryList = document.querySelector('ul.country-list');
 const countryInfo = document.querySelector('div.country-info');
-const body = document.querySelector('body');
+const bodyLook = document.querySelector('body');
 
 
 const restInfo = countries => {
@@ -46,13 +46,13 @@ const restList = countries => {
 input.addEventListener(
   'input',
   debounce(event => {
-    let trimInput = input.value.trim();
-    if (trimInput === '') {
+    let trimIn = input.value.trim();
+    if (trimIn === '') {
       countryList.innerHTML = '';
       countryInfo.innerHTML = '';
       return;
     };
-    return fetchCountries(trimInput)
+    return fetchCountries(trimIn)
       .then(countries => {
         if (countries.length > 10) {
           Notiflix.Notify.info(
@@ -83,15 +83,13 @@ input.addEventListener(
 );
 
 /*--styles--*/
-body.style.padding = '20px';
-body.style.backgroundColor = '#808080';
+bodyLook.style.padding = '20px';
+bodyLook.style.backgroundColor = '#808080';
 
 
 input.style.fontSize = '50px';
 input.style.backgroundColor='#000';
 input.style.color='#fff';
-
-
 countryList.style.listStyle = 'none';
 countryList.style.margin = '0';
 countryList.style.padding = '0';
